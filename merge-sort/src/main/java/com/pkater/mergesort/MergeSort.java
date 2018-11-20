@@ -12,7 +12,7 @@ public class MergeSort {
             L[i] = A[l + i];
 
         for (int j = 0; j < nR; ++j)
-            R[j] = A[m + 1 + j];
+            R[j] = A[m + 1 + j]; 
 
         int i = 0;
         int j = 0;
