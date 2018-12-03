@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 void insertionSort(int A[], int n){
 
 	for(int i = 0; i < n; i++){
@@ -15,5 +18,9 @@ void insertionSort(int A[], int n){
 
 int main() {
 	int A[] = {2, 5, 10, 3, 4, 1, 9, 6, 7, 8};
-	insertionSort(A, sizeof(A));
+	int n = sizeof(A)/sizeof(A[0]);
+	insertionSort(A, n);
+	for(int i = 0; i < n; i++){
+		printf("%d",A[i]);
+	}
 }
