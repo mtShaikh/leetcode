@@ -1,2 +1,2 @@
-# algorithms
-Implementations of algorithms from CLRS in different languages
+# leetcode
+Leetcode practice from different websites 
