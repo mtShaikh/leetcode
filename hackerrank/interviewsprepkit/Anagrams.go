@@ -2,37 +2,47 @@ package main
 
 import (
 "fmt"
-"strings"
 )
 
 // Complete the sherlockAndAnagrams function below.
-func sherlockAndAnagrams(s string) {
+func sherlockAndAnagrams(s string) int32 {
 	runes := []rune(s)
-	// var m map[int] []string
-	c := 0
-	// m = make(map[int] []string)
-	for length := 1; length < len(runes); length++ {
-		for start := 0; start <= len(runes) - length; start++ {
-			substring := string(runes[start:start+length])
-			fmt.Println(substring)
-			if strings.Index(s, substring) != strings.LastIndex(s, substring) {
-				c++
+	var c int32 = 0
+	for end := 1; end < len(runes); end++ {
+		for start := 0; start <= len(runes) - end; start++ {
+			substring := string(runes[start:start+end])
+			for j := start + 1; j < len(runes) - end + 1; j++ {
+				substring2 := string(runes[j:j+end])
+				if (checkAna(substring, substring2, len(substring))) {
+					c++
+				}
 			}
-           /* if x, ok := m[len(substring)]; !ok {
-            	a := make([]string, 1)
-            	a = append(a, substring)
-            	m[len(substring)] = a
-            } else {
-        		x = append(x, substring)
-        		m[len(substring)] = x
-   			}*/
 		}
 	}
-
-	fmt.Println(c)
+	return c
 
 }
 
+func checkAna(s1 string, s2 string, n int) bool {
+	var f [26]int
+	var s [26]int
+	for _,c := range s1 {
+		f[c - 'a']++
+	}
+
+	for _,c := range s2 {
+		s[c - 'a']++
+	}
+
+	for i:=0; i < 26; i++ {
+		if(f[i] != s[i]) {
+			return false
+		}
+	}
+
+	return true
+}
+
 func main() {
-	sherlockAndAnagrams("ifailuhkqq")
+	fmt.Println(sherlockAndAnagrams("cdcd"))
 }
