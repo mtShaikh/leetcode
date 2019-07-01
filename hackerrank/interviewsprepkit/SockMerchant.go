@@ -33,7 +33,7 @@ func sockMerchant(n int32, ar []int32) int32 {
     //     }
     // }*/
     for i := 0; i < int(n); i++ {
-        c+=ar[i]/2 //best solution
+        c+=ar[i]/2 //wrong solution
     }
 
     return c
